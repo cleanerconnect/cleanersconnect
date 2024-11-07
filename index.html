@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <!-- Meta tags for SEO -->
+    <!-- Meta tags -->
     <meta name="description" content="Affordable cleaning services connecting Columbia Students & Upper Manhattan Residents with professional cleaners.">
     <meta name="keywords" content="cleaning service, Manhattan, Columbia University, house cleaning, apartment cleaning">
     <meta name="author" content="UpTown Cleaning Connect">
@@ -13,12 +13,13 @@
     <meta property="og:type" content="website">
     
     <title>UpTown Cleaning Connect</title>
+
+    <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    
+
+    <!-- Custom Styles -->
     <style>
-        /* Cleaning swipe effect */
         .cleaning-swipe::before {
             content: '';
             position: absolute;
@@ -35,35 +36,31 @@
             transform: scaleX(1);
         }
 
-        /* Base styles */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Header background */
-        .header-bg {
-            background-color: #2563eb;
+        /* Form specific styles */
+        select, input[type="date"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: white;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right .7em top 50%;
+            background-size: .65em auto;
+            padding-right: 2.5rem;
         }
 
-        /* Image loading states */
-        img {
-            transition: opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        img.loaded {
+        input[type="date"]::-webkit-calendar-picker-indicator {
             opacity: 1;
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-width: thin;
         }
 
-        /* Form focus states */
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            ring: 2px;
-            ring-offset: 2px;
-            ring-blue-600;
-        }
-
-        /* Loading spinner */
         .spinner {
             border: 3px solid rgba(59, 130, 246, 0.2);
             border-radius: 50%;
@@ -77,22 +74,31 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Input focus styles */
+        .form-input:focus, 
+        .form-select:focus, 
+        .form-textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Header Section -->
     <header class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 overflow-hidden">
         <div class="container mx-auto px-4 z-10 relative text-center">
             <h1 class="text-5xl font-bold mb-4">UpTown Cleaning Connect</h1>
             <p class="text-xl">Connecting Columbia Students & Upper Manhattan Residents with Affordable Cleaning Services</p>
         </div>
-        <div class="absolute top-0 left-0 w-full h-full z-0 opacity-20 header-bg">
+        <div class="absolute top-0 left-0 w-full h-full z-0 opacity-20">
             <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80" 
                  alt="Cleaning supplies background" 
                  class="object-cover w-full h-full"
                  loading="lazy"
                  onerror="this.style.display='none'">
         </div>
-        <div class="cleaning-swipe"></div>
     </header>
     <main class="container mx-auto px-4 py-16">
         <!-- How It Works Section -->
@@ -133,16 +139,91 @@
                             </svg>
                             Bathroom cleaning
                         </li>
-                        <!-- Repeat for other items -->
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Kitchen cleaning
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Dusting & vacuuming
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            General tidying
+                        </li>
                     </ul>
                 </div>
+
                 <!-- Deep Clean -->
                 <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center cleaning-swipe relative overflow-hidden">
-                    <!-- Similar structure to Basic Clean -->
+                    <div class="text-4xl mb-4">🧽</div>
+                    <h3 class="text-2xl font-semibold mb-2">Deep Clean</h3>
+                    <p class="text-3xl font-bold text-blue-600 mb-6">From $120</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            All Basic Clean services
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Deep kitchen cleaning
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Inside cabinets
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Window cleaning
+                        </li>
+                    </ul>
                 </div>
+
                 <!-- Full Clean -->
                 <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center cleaning-swipe relative overflow-hidden">
-                    <!-- Similar structure to Basic Clean -->
+                    <div class="text-4xl mb-4">🧴</div>
+                    <h3 class="text-2xl font-semibold mb-2">Full Clean</h3>
+                    <p class="text-3xl font-bold text-blue-600 mb-6">From $200</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            All Deep Clean services
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Appliance cleaning
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Wall washing
+                        </li>
+                        <li class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Advanced floor care
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -150,24 +231,78 @@
         <!-- Booking Form -->
         <section class="max-w-2xl mx-auto">
             <h2 class="text-4xl font-bold mb-12 text-center">Book a Cleaning</h2>
-            <form class="bg-white p-8 rounded-lg shadow-lg cleaning-swipe relative overflow-hidden" 
-                  action="https://formspree.io/f/mnnqdvbn" 
-                  method="POST"
-                  id="booking-form">
+            <form id="bookingForm" class="bg-white p-8 rounded-lg shadow-lg cleaning-swipe relative overflow-hidden" action="https://formspree.io/f/mnnqdvbn" method="POST">
                 <div class="space-y-4">
                     <!-- Service Type -->
                     <div class="form-group">
                         <label class="block mb-1 font-medium text-center">Service Type*</label>
-                        <select name="service" required class="w-full p-2 border rounded text-center focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors duration-200">
+                        <select name="service" required class="form-select w-full p-2 border rounded text-center">
                             <option value="">Select a service...</option>
-                            <option value="basic">Basic Clean</option>
-                            <option value="deep">Deep Clean</option>
-                            <option value="full">Full Clean</option>
+                            <option value="basic">Basic Clean ($70)</option>
+                            <option value="deep">Deep Clean ($120)</option>
+                            <option value="full">Full Clean ($200)</option>
                         </select>
                     </div>
-                    
-                    <!-- Form fields continue with same pattern -->
-                    
+
+                    <!-- Cleaning Frequency -->
+                    <div class="form-group">
+                        <label class="block mb-1 font-medium text-center">Cleaning Frequency*</label>
+                        <select name="frequency" required class="form-select w-full p-2 border rounded text-center">
+                            <option value="one-time">One-time</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="bi-weekly">Bi-weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+
+                    <!-- Date and Time -->
+                    <div class="form-group">
+                        <label class="block mb-1 font-medium text-center">Preferred Date*</label>
+                        <input type="date" name="date" required class="form-input w-full p-2 border rounded text-center"
+                               min="" id="dateInput">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="block mb-1 font-medium text-center">Preferred Time*</label>
+                        <select name="time" required class="form-select w-full p-2 border rounded text-center">
+                            <option value="morning">Morning (9AM - 12PM)</option>
+                            <option value="afternoon">Afternoon (12PM - 3PM)</option>
+                            <option value="evening">Evening (3PM - 6PM)</option>
+                        </select>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-group">
+                        <label class="block mb-1 font-medium text-center">Name*</label>
+                        <input type="text" name="name" required class="form-input w-full p-2 border rounded text-center" 
+                               placeholder="Your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="block mb-1 font-medium text-center">Email*</label>
+                        <input type="email" name="email" required class="form-input w-full p-2 border rounded text-center"
+                               placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="block mb-1 font-medium text-center">Phone Number*</label>
+                        <input type="tel" name="phone" required class="form-input w-full p-2 border rounded text-center"
+                               placeholder="(123) 456-7890">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="block mb-1 font-medium text-center">Address*</label>
+                        <input type="text" name="address" required class="form-input w-full p-2 border rounded text-center"
+                               placeholder="Your full address">
+                    </div>
+
+                    <!-- Special Requirements -->
+                    <div class="form-group">
+                        <label class="block mb-1 font-medium text-center">Special Requirements</label>
+                        <textarea name="requirements" rows="3" class="form-textarea w-full p-2 border rounded"
+                                  placeholder="Any special instructions or requirements..."></textarea>
+                    </div>
+
                     <!-- Submit Button -->
                     <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold flex items-center justify-center">
                         <span>Book Now</span>
@@ -175,13 +310,12 @@
                     </button>
 
                     <!-- Form Status -->
-                    <div id="form-status" class="text-center font-medium p-4 rounded-lg mt-4" style="display: none;">
-                        Thank you! We'll contact you shortly to confirm your booking.
+                    <div id="formStatus" class="text-center font-medium p-4 rounded-lg mt-4" style="display: none;">
                     </div>
 
                     <!-- Required Fields Notice -->
                     <div class="text-sm text-gray-600 mt-4 text-center">
-                        * All fields are required
+                        * Required fields
                     </div>
                 </div>
             </form>
@@ -196,25 +330,29 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            // Image loading handling
-            document.querySelectorAll('img').forEach(img => {
-                if (img.complete) {
-                    img.classList.add('loaded');
-                } else {
-                    img.addEventListener('load', function() {
-                        this.classList.add('loaded');
-                    });
-                }
-            });
-
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set minimum date to today
+            const dateInput = document.getElementById('dateInput');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            
+            // Form handling
+            const form = document.getElementById('bookingForm');
+            const formStatus = document.getElementById('formStatus');
+            <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set minimum date to today
+            const dateInput = document.getElementById('dateInput');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            
             // GSAP animations
             gsap.from("header > div", {duration: 1, y: 50, opacity: 0, ease: "power3.out"});
             gsap.from(".grid > div", {duration: 0.8, opacity: 0, y: 50, stagger: 0.2, ease: "power3.out"});
             
             // Form handling
-            const form = document.querySelector('#booking-form');
-            const formStatus = document.getElementById('form-status');
+            const form = document.getElementById('bookingForm');
+            const formStatus = document.getElementById('formStatus');
             const submitButton = form.querySelector('button[type="submit"]');
             const spinner = submitButton.querySelector('.spinner');
 
@@ -226,8 +364,8 @@
                 spinner.style.display = 'block';
                 submitButton.querySelector('span').textContent = 'Sending...';
                 formStatus.style.display = 'block';
-                formStatus.textContent = 'Sending your booking request...';
                 formStatus.className = 'text-blue-600 text-center font-medium p-4 rounded-lg mt-4 bg-blue-50';
+                formStatus.textContent = 'Submitting your booking request...';
 
                 try {
                     const response = await fetch(form.action, {
@@ -239,23 +377,34 @@
                     });
 
                     if (response.ok) {
+                        // Success handling
                         form.reset();
                         formStatus.className = 'text-green-600 text-center font-medium p-4 rounded-lg mt-4 bg-green-50';
                         formStatus.textContent = 'Thank you! We'll contact you shortly to confirm your booking.';
                         gsap.from(formStatus, {duration: 0.5, y: 20, opacity: 0});
+                        
+                        // Scroll to show success message
                         formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     } else {
-                        throw new Error('Form submission failed');
+                        throw new Error('Submission failed');
                     }
                 } catch (error) {
                     console.error('Error:', error);
                     formStatus.className = 'text-red-600 text-center font-medium p-4 rounded-lg mt-4 bg-red-50';
-                    formStatus.textContent = 'Oops! There was a problem. Please try again.';
+                    formStatus.textContent = 'Oops! There was a problem. Please try again or contact us directly.';
                 } finally {
+                    // Reset button state
                     submitButton.disabled = false;
                     spinner.style.display = 'none';
                     submitButton.querySelector('span').textContent = 'Book Now';
                 }
+            });
+
+            // Phone number formatting
+            const phoneInput = form.querySelector('input[name="phone"]');
+            phoneInput.addEventListener('input', function(e) {
+                let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
             });
         });
     </script>
