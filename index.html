@@ -325,29 +325,51 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set minimum date to today
-            const dateInput = document.getElementById('dateInput');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add interactive styles
+        const style = document.createElement('style');
+        style.textContent = `
+            input, select, textarea, button {
+                pointer-events: auto !important;
+                cursor: pointer;
+            }
+            
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            textarea {
+                cursor: text;
+            }
+            
+            select {
+                cursor: pointer;
+                -webkit-appearance: menulist !important;
+                appearance: menulist !important;
+            }
+
+            .form-group {
+                position: relative;
+                z-index: 10;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Set minimum date to today
+        const dateInput = document.querySelector('input[type="date"]');
+        if (dateInput) {
             const today = new Date().toISOString().split('T')[0];
             dateInput.min = today;
-            
-            // Form handling
-            const form = document.getElementById('bookingForm');
-            const formStatus = document.getElementById('formStatus');
-            <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set minimum date to today
-            const dateInput = document.getElementById('dateInput');
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.min = today;
-            
-            // GSAP animations
-            gsap.from("header > div", {duration: 1, y: 50, opacity: 0, ease: "power3.out"});
-            gsap.from(".grid > div", {duration: 0.8, opacity: 0, y: 50, stagger: 0.2, ease: "power3.out"});
-            
-            // Form handling
-            const form = document.getElementById('bookingForm');
-            const formStatus = document.getElementById('formStatus');
+        }
+        
+        // GSAP animations
+        gsap.from("header > div", {duration: 1, y: 50, opacity: 0, ease: "power3.out"});
+        gsap.from(".grid > div", {duration: 0.8, opacity: 0, y: 50, stagger: 0.2, ease: "power3.out"});
+        
+        // Form handling
+        const form = document.getElementById('bookingForm');
+        const formStatus = document.getElementById('formStatus');
+        
+        if (form) {
             const submitButton = form.querySelector('button[type="submit"]');
             const spinner = submitButton.querySelector('.spinner');
 
@@ -397,11 +419,14 @@
 
             // Phone number formatting
             const phoneInput = form.querySelector('input[name="phone"]');
-            phoneInput.addEventListener('input', function(e) {
-                let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
-                e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
-            });
-        });
-    </script>
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+                    e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+                });
+            }
+        }
+    });
+</script>
 </body>
 </html>
