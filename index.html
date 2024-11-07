@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
 
 export default function Component() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
@@ -13,16 +12,6 @@ export default function Component() {
   const opacity = useTransform(scrollY, [0, 300], [1, 0.5])
   const scale = useTransform(scrollY, [0, 300], [1, 1.1])
 
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js'
-    script.defer = true
-    document.body.appendChild(script)
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     const form = event.target
@@ -33,7 +22,7 @@ export default function Component() {
         method: 'POST',
         body: formData,
         headers: {
-          Accept: 'application/json',
+          'Accept': 'application/json'
         },
       })
 
@@ -76,16 +65,8 @@ export default function Component() {
         </motion.div>
         <motion.div
           style={{ y: y1, opacity, scale }}
-          className="absolute top-0 left-0 w-full h-full z-0"
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80"
-            alt="Cleaning supplies background"
-            layout="fill"
-            objectFit="cover"
-            className="opacity-20"
-          />
-        </motion.div>
+          className="absolute top-0 left-0 w-full h-full z-0 bg-blue-900 opacity-20"
+        />
       </header>
 
       <main className="container mx-auto px-4 py-16 flex-grow">
@@ -117,18 +98,6 @@ export default function Component() {
               </motion.div>
             ))}
           </div>
-          <motion.div
-            style={{ x: x1, opacity }}
-            className="absolute top-0 right-0 w-1/4 h-full z-0 hidden md:block"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1603712725038-e9334ae8f39f?auto=format&fit=crop&w=400&h=600&q=80"
-              alt="Cleaning person"
-              layout="fill"
-              objectFit="contain"
-              className="opacity-30"
-            />
-          </motion.div>
         </section>
 
         <section className="mb-24">
@@ -290,18 +259,6 @@ export default function Component() {
               )}
             </div>
           </motion.form>
-          <motion.div
-            style={{ x: x2, opacity }}
-            className="absolute bottom-0 left-0 w-1/4 h-1/2 z-0 hidden md:block"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=300&h=400&q=80"
-              alt="Cleaning tools"
-              layout="fill"
-              objectFit="contain"
-              className="opacity-30"
-            />
-          </motion.div>
         </section>
       </main>
 
